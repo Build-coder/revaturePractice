@@ -4,7 +4,7 @@
 
 public class InterviewCC {
 
-     public static void main(String []args){
+      public static void main(String []args){
          
         /**
          * write fibonacci series
@@ -50,6 +50,7 @@ public class InterviewCC {
         */
          String str = "racecar", newStr = "";
          
+         // build a copy of the string but in reverse
          for(i=str.length()-1; i>=0; i--){
             newStr += str.charAt(i);
          }
@@ -75,7 +76,70 @@ public class InterviewCC {
          // correct answer
          if(newStr.equals(str)) System.out.println("'Integer' is a palindrome");
          else System.out.println("'Integer' is not a palindrome");
+         Integer.valueOf(n); // convert n back to an int
          System.out.println();
+         
+         
+         /**
+          * output the factorial of a given number
+          * 
+        */
+        n = 5;
+        i = 1;
+        int f = 1;
         
-     }
+        while(i<=n){
+            f *= i; // same as f = f * i
+            i++;        
+        }
+        
+        System.out.println(f);
+        
+        
+        /**
+         * remove duplicates from an array
+         * best way i've seen is to use a LinkedHashSet
+         * a Set does not allow duplicates
+         * a LinkedList maintains the order of insertion
+        */
+        int a[] = {5,2,6,8,6,7,5,2,8};
+        
+        LinkedHashSet<Integer> set = new LinkedHashSet<Integer>();
+        
+        for(i=0; i<a.length; i++) { set.add(a[i]); }
+        
+        System.out.println(set);
+        
+        
+        /**
+         * check if two given strings are anagrams
+         * (an anagram is a word that's letters can be rearranged
+         * to create another word)
+         * 
+        */
+        str = "SpaceJAm";
+        newStr = "jaMspaCe";
+        
+        // standardize data by making it all lowercase
+        str = str.toLowerCase();
+        newStr = newStr.toLowerCase();
+        
+        // create an array of chars that's a copy of string
+        char tempArray1[] = str.toCharArray();
+        char tempArray2[] = newStr.toCharArray();
+        
+        // sort array of chars
+        Arrays.sort(tempArray1);
+        Arrays.sort(tempArray2);
+       
+        // convert array back to string
+        str = Arrays.toString(tempArray1);
+        newStr = Arrays.toString(tempArray2);
+        
+        // use .equals() on string to test if it holds the same value as another string
+        if(str.equals(newStr)) System.out.println("They are anagrams");
+        else System.out.println("They are not anagrams");
+        System.out.println();
+       
+      }
 }
